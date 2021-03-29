@@ -1,0 +1,431 @@
+    body {
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        background: url(https://sun9-45.userapi.com/impf/zDDgbj4x2HoKWs59fwaU5IBUyXdb38z9E9uWxQ/yy6latEjvvs.jpg?size=1920x1080&quality=96&sign=e6aab9691ae804c90cc464f29256f83c&type=album) no-repeat;
+    }
+    
+    .circles>div {
+        border-radius: 50%;
+    }
+    
+    .circles>div>div {
+        border-radius: 50%;
+        position: absolute;
+    }
+    
+    #ring {
+        position: absolute;
+        left: 36.5%;
+        top: 24.5%;
+    }
+    
+    #cb {
+        background: rgba(7, 7, 10, 0.56);
+        /*        
+        height: 400px;
+        width: 400px;  и старая пикча
+        */
+        height: 400px;
+        width: 400px;
+        position: relative;
+        /* transform: translate(0, 50%); */
+        /* bottom: 39.6%; */
+        margin-left: auto;
+        margin-right: auto;
+        /* margin-top: 16% все остальные были auto */
+        margin-top: 15.5%;
+        margin-bottom: auto;
+        z-index: 0;
+    }
+    
+    .c1 {
+        background: #797979;
+        height: 193px;
+        width: 193px;
+        position: absolute;
+        top: 17%;
+        left: 17%;
+        z-index: 0;
+    }
+    
+    .c2 {
+        background: #666666;
+        height: 193px;
+        width: 193px;
+        position: absolute;
+        top: 17%;
+        left: 33%;
+        z-index: 0;
+    }
+    
+    .c3 {
+        background: #414141;
+        height: 193px;
+        width: 193px;
+        position: absolute;
+        top: 33%;
+        left: 17%;
+        z-index: 0;
+    }
+    
+    .c4 {
+        background: #303030;
+        height: 193px;
+        width: 193px;
+        position: absolute;
+        top: 33%;
+        left: 33%;
+        z-index: -1;
+    }
+    
+    .click {
+        text-align: center;
+        color: white;
+        font-family: Redressed;
+        font-size: 48px;
+        word-break: break-all;
+    }
+    
+    .c5 {
+        position: absolute;
+        top: 25%;
+        left: 25%;
+    }
+    
+    .fimg {
+        position: absolute;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: auto;
+        top: 25%;
+        left: 36.5%;
+    }
+    
+    .btn {
+        background: #0D0E13;
+        border-radius: 50%;
+        top: 25%;
+        left: 25%;
+        height: 193px;
+        width: 193px;
+        border: 0px;
+    }
+    /* убираю дефолтную рамку с кнопки при нажатии */
+    
+    input [type="checkbox"] {
+        display: none;
+    }
+    
+    button,
+    button:active,
+    button:focus {
+        outline: none;
+    }
+    
+    .btn {
+        cursor: pointer;
+    }
+    
+    .cimg {
+        opacity: 0;
+    }
+    /*анимации для всех пяти кругов: 
+Четыре кружка с оттенками серого летят по углам и трансформируются
+ в прямоугольное полупрозрачное окно (если получится) с1 с2 с3 с4
+    */
+    
+    @keyframes ca1 {
+        from {}
+        to {
+            transform: translate(-218%, -87%);
+            background: rgba(7, 7, 10, 0.56);
+            border-radius: 0%;
+            opacity: 0;
+        }
+    }
+    
+    .c1.anim {
+        animation: ca1 2s ease-in-out 1 alternate both;
+    }
+    
+    @keyframes ca2 {
+        from {}
+        to {
+            transform: translate(216%, -87%);
+            background: rgba(7, 7, 10, 0.56);
+            border-radius: 0%;
+            opacity: 0;
+        }
+    }
+    
+    .c2.anim {
+        animation: ca2 2s ease-in-out 1 alternate both;
+    }
+    
+    @keyframes ca3 {
+        from {}
+        to {
+            transform: translate(-218%, 87%);
+            background: rgba(7, 7, 10, 0.56);
+            border-radius: 0%;
+            opacity: 0;
+        }
+    }
+    
+    .c3.anim {
+        animation: ca3 2s ease-in-out 1 alternate both;
+    }
+    
+    @keyframes ca4 {
+        from {}
+        to {
+            transform: translate(216%, 87%);
+            background: rgba(7, 7, 10, 0.56);
+            border-radius: 0%;
+            opacity: 0;
+        }
+    }
+    /* alternate both позволяет анимацию вернуть и залупить адекватно */
+    
+    .c4.anim {
+        animation: ca4 2s ease-in-out 1 alternate both;
+    }
+    /* Задний полупрозрачный трансформируется в аватарку cb
+Основная кнопка исчезает. c5 
+    */
+    
+    @keyframes ca5 {
+        from {
+            z-index: 5000;
+        }
+        15% {
+            opacity: 0;
+            z-index: 5000;
+        }
+        to {
+            transform: scale(0, 0);
+            z-index: 5000;
+            opacity: 0;
+        }
+    }
+    
+    .c5.anim {
+        animation: ca5 4s ease-in-out 1 alternate both;
+    }
+    
+    @keyframes cab {
+        from {}
+        to {
+            background-image: url(pics/ping1.png);
+        }
+    }
+    
+    #cb {}
+    
+    @keyframes cimg {
+        from {}
+        to {
+            opacity: 100%;
+            z-index: 10;
+        }
+    }
+    
+    .cimg.anim {
+        animation: cimg 2s ease-in-out 1 alternate both;
+        animation-delay: 1s;
+    }
+    /* свойства и  анимации прямоугольных контейнеров по углам экрана */
+    
+    .r1 {
+        background-color: rgba(7, 7, 10, 0.56);
+        height: 43.8%;
+        width: 46.8%;
+        position: absolute;
+        top: 0%;
+        transform: scale(1, 1);
+        z-index: -5;
+        opacity: 0;
+    }
+    
+    .r2 {
+        background-color: rgba(7, 7, 10, 0.56);
+        height: 43.8%;
+        width: 46.8%;
+        position: absolute;
+        bottom: 0%;
+        transform: scale(1, 1);
+        opacity: 0;
+        z-index: -5;
+    }
+    
+    .r3 {
+        background-color: rgba(7, 7, 10, 0.56);
+        height: 43.8%;
+        width: 46.8%;
+        position: absolute;
+        right: 0%;
+        top: 0%;
+        transform: scale(1, 1);
+        opacity: 0;
+        z-index: -5;
+    }
+    
+    .r4 {
+        background-color: rgba(7, 7, 10, 0.56);
+        height: 43.8%;
+        width: 46.8%;
+        position: absolute;
+        bottom: 0%;
+        right: 0%;
+        transform: scale(1, 1);
+        opacity: 0;
+        z-index: -5;
+    }
+    
+    @keyframes ra1 {
+        from {}
+        to {
+            opacity: 100%;
+        }
+    }
+    
+    .r1.anim {
+        animation: ra1 2s ease-in-out 1 alternate both;
+        animation-delay: 2s;
+    }
+    
+    @keyframes ra2 {
+        from {}
+        to {
+            opacity: 100%;
+        }
+    }
+    
+    .r2.anim {
+        animation: ra2 2s ease-in-out 1 alternate both;
+        animation-delay: 2s;
+    }
+    
+    @keyframes ra3 {
+        from {}
+        to {
+            opacity: 100%;
+        }
+    }
+    
+    .r3.anim {
+        animation: ra3 2s ease-in-out 1 alternate both;
+        animation-delay: 2s;
+    }
+    
+    @keyframes ra4 {
+        from {}
+        to {
+            opacity: 100%;
+        }
+    }
+    
+    .r4.anim {
+        animation: ra4 2s ease-in-out 1 alternate both;
+        animation-delay: 2s;
+    }
+    /* свойства текста в блоках */
+    
+    .head {
+        color: ivory;
+        font-size: 36px;
+        font-family: 'Fira sans';
+        text-align: center;
+        border: 2px linear ivory;
+        text-decoration: underline;
+        text-underline-offset: 10px;
+        text-decoration-color: rgb(155, 155, 161)
+    }
+    
+    .text {
+        color: ivory;
+        font-size: 18px;
+    }
+    
+    #t1 {
+        text-align: left;
+        margin-right: 50%;
+        margin-left: 5%;
+    }
+    
+    #t3 {
+        text-align: right;
+        margin-left: 50%;
+        margin-right: 5%;
+    }
+    
+    #t2 {
+        text-align: left;
+        margin-right: 50%;
+        margin-left: 5%;
+    }
+    
+    #t4 {
+        text-align: right;
+        margin-left: 50%;
+        margin-right: 5%;
+    }
+    
+    #p1 {
+        position: absolute;
+        top: 28%;
+        left: 52%;
+    }
+    
+    #p2 {
+        position: absolute;
+        top: 28%;
+        right: 52%;
+    }
+    
+    li {
+        color: ivory;
+        font-size: 28px;
+        margin-left: 10%;
+        padding: 0;
+        padding-bottom: 15px;
+        padding-top: 15px;
+    }
+    
+    #l1 {
+        list-style-image: url()
+    }
+    
+    #l2 {}
+    
+    #l3 {}
+    
+    #l4 {}
+    
+    .cshark {
+        color: rgb(146, 108, 250);
+        font-family: MontSerrat;
+        font-weight: 900;
+    }
+    
+    .innertext {
+        position: absolute;
+        color: ivory;
+        font-size: 34px;
+        background-color: rgba(44, 43, 50, 0.9);
+        padding: 5px;
+        padding-right: 10px;
+        padding-left: 10px;
+        border-radius: 30%;
+    }
+    
+    #it1 {
+        top: 55%;
+        left: 17%;
+    }
+    
+    #it2 {
+        top: 65%;
+        left: 47%;
+    }
